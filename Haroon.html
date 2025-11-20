@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Muhammad Haroon | Frontend Engineer</title>
+  <meta name="description" content="Muhammad Haroon - Frontend Developer & WordPress Specialist building high-performance web experiences."/>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@500;700;800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+  <style>/* --- 3D BENTO CARD STYLES --- */
+#about { position: relative; z-index: 2; }
+
+.bento-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr; /* Slight adjustment for better balance */
+  gap: 30px;
+}
+
+/* The 3D Glass Slabs */
+.card-3d {
+  background: rgba(15, 23, 42, 0.6); /* Darker, deeper glass */
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 30px;
+  padding: 3rem;
+  
+  /* The 3D Edge Effect */
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-top: 1px solid rgba(255, 255, 255, 0.25); /* Top Highlight light */
+  border-bottom: 4px solid rgba(0, 0, 0, 0.3); /* Bottom thickness shadow */
+  
+  /* Floating Shadow */
+  box-shadow: 
+    0 25px 50px -12px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255,255,255,0.1); /* Inner light reflection */
+    
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.card-3d:hover {
+  transform: translateY(-5px) scale(1.01);
+  box-shadow: 
+    0 35px 60px -15px rgba(0, 0, 0, 0.6),
+    inset 0 1px 0 rgba(255,255,255,0.2);
+  border-top-color: rgba(255, 255, 255, 0.4);
+}
+
+/* --- 3D TECH LOGO GRID --- */
+.tech-grid-3d {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 columns for a dense icon grid */
+  gap: 20px;
+  margin-top: 2.5rem;
+  justify-items: center;
+}
+
+.tech-item-3d {
+  position: relative;
+  width: 70px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* A subtle glow container behind the icon */
+  background: radial-gradient(circle at center, rgba(255,255,255,0.05) 0%, transparent 70%);
+  border-radius: 50%;
+  transition: 0.3s;
+}
+
+/* The Base 3D Icon Style */
+.icon-3d-tech {
+  font-size: 2.8rem;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  /* Ensure they have base color before hover */
+}
+
+/* --- BRAND SPECIFIC 3D COLOR STACKS --- */
+
+/* React - Blue */
+.i-react-3d { color: #61DAFB; text-shadow: 0 2px 0 #2188ab, 0 4px 0 #135a72, 0 5px 15px rgba(97, 218, 251, 0.4); }
+/* JS - Yellow */
+.i-js-3d { color: #F7DF1E; text-shadow: 0 2px 0 #c2b01a, 0 4px 0 #8f8112, 0 5px 15px rgba(247, 223, 30, 0.4); }
+/* Tailwind - Teal */
+.i-tailwind-3d { color: #38B2AC; text-shadow: 0 2px 0 #2c8a85, 0 4px 0 #1e605d, 0 5px 15px rgba(56, 178, 172, 0.4); }
+/* WordPress - Dark Blue */
+.i-wp-3d { color: #21759B; text-shadow: 0 2px 0 #154e68, 0 4px 0 #0d3344, 0 5px 15px rgba(33, 117, 155, 0.4); }
+/* Elementor - Maroon/Pink */
+.i-elementor-3d { color: #92003B; text-shadow: 0 2px 0 #630028, 0 4px 0 #3f0019, 0 5px 15px rgba(146, 0, 59, 0.4); }
+/* Git - Orange */
+.i-git-3d { color: #F1502F; text-shadow: 0 2px 0 #be3f25, 0 4px 0 #8a2d1a, 0 5px 15px rgba(241, 80, 47, 0.4); }
+/* SEO - Purple */
+.i-seo-3d { color: #A855F7; text-shadow: 0 2px 0 #8b46c9, 0 4px 0 #6b369b, 0 5px 15px rgba(168, 85, 247, 0.4); }
+/* Figma - Multi-color (using orange base for 3D) */
+.i-figma-3d { color: #FF7262; text-shadow: 0 2px 0 #c7574a, 0 4px 0 #944036, 0 5px 15px rgba(255, 114, 98, 0.4); }
+
+
+/* Hover Effects: Pop up and intensify glow */
+.tech-item-3d:hover .icon-3d-tech { transform: translateY(-10px) scale(1.1); }
+.tech-item-3d:hover .i-react-3d { text-shadow: 0 5px 0 #2188ab, 0 10px 0 #135a72, 0 15px 30px rgba(97, 218, 251, 0.7); }
+.tech-item-3d:hover .i-js-3d { text-shadow: 0 5px 0 #c2b01a, 0 10px 0 #8f8112, 0 15px 30px rgba(247, 223, 30, 0.7); }
+/* ... (add similar hover Intensities for others if desired, but these two show the effect well) ... */
+
+
+@media (max-width: 968px) {
+  .bento-grid { grid-template-columns: 1fr; gap: 40px; }
+  .tech-grid-3d { grid-template-columns: repeat(4, 1fr); }
+}
+@media (max-width: 480px) {
+  .tech-grid-3d { grid-template-columns: repeat(3, 1fr); gap: 15px; }
+  .card-3d { padding: 2rem; }
+}
+    :root {
+      --bg: #030712;
+      --card-bg: rgba(17, 24, 39, 0.7);
+      --card-border: rgba(255, 255, 255, 0.08);
+      --primary: #6366f1;
+      --secondary: #a855f7;
+      --accent: #06b6d4;
+      --text-main: #f9fafb;
+      --text-muted: #9ca3af;
+      --gradient-main: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text-main);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    h1,h2,h3,h4 { font-family: 'Outfit', sans-serif; }
+    a { text-decoration: none; color: inherit; }
+
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+    /* Animated Background Blobs */
+    .bg-blobs {
+      position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none;
+    }
+    .blob {
+      position: absolute; filter: blur(80px); opacity: 0.4; border-radius: 50%;
+      animation: float 12s infinite alternate;
+    }
+    .blob-1 { width: 500px; height: 500px; background: var(--primary); top: -100px; left: -100px; }
+    .blob-2 { width: 400px; height: 400px; background: var(--secondary); bottom: -50px; right: -50px; animation-delay: -6s; }
+    .blob-3 { width: 300px; height: 300px; background: var(--accent); top: 40%; left: 40%; opacity: 0.2; animation-duration: 16s; }
+    @keyframes float { 0% { transform: translate(0,0) scale(1); } 100% { transform: translate(30px,50px) scale(1.1); } }
+
+    /* Buttons */
+    .btn, .btn-secondary {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 14px 34px; border-radius: 50px; font-weight: 600;
+      transition: all 0.35s ease; position: relative; overflow: hidden; z-index: 1;
+    }
+    .btn {
+      background: var(--gradient-main); color: white;
+      box-shadow: 0 10px 20px rgba(99,102,241,0.2);
+    }
+    .btn:hover { transform: translateY(-3px); box-shadow: 0 15px 30px rgba(99,102,241,0.4); }
+    .btn::before { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg,#a855f7,#6366f1); opacity: 0; transition: opacity 0.3s; z-index: -1; }
+    .btn:hover::before { opacity: 1; }
+
+    .btn-secondary {
+      background: rgba(255,255,255,0.05); backdrop-filter: blur(12px);
+      border: 1.5px solid rgba(255,255,255,0.15); color: white;
+    }
+    .btn-secondary::before { content: ''; position: absolute; inset: 0; background: var(--gradient-main); opacity: 0; transition: opacity 0.35s; z-index: -1; border-radius: 50px; }
+    .btn-secondary:hover { border-color: transparent; transform: translateY(-3px); box-shadow: 0 15px 30px rgba(99,102,241,0.3); }
+    .btn-secondary:hover::before { opacity: 0.15; }
+    .btn-secondary:hover i { transform: translateX(6px); }
+    .btn-secondary i { transition: transform 0.3s; }
+
+    .hero-buttons { margin-top: 2.5rem; display: flex; gap: 1.5rem; flex-wrap: wrap; justify-content: center; }
+
+    /* Navigation */
+    nav {
+      position: fixed; top: 20px; left: 50%; transform: translateX(-50%);
+      width: 90%; max-width: 600px; background: rgba(255,255,255,0.05);
+      backdrop-filter: blur(12px); border: 1px solid var(--card-border);
+      padding: 12px 30px; border-radius: 50px; z-index: 1000;
+      display: flex; justify-content: space-between; align-items: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    }
+    .logo { font-weight: 800; font-size: 1.3rem; color: white; }
+    .nav-links a { font-weight: 500; color: var(--text-muted); transition: 0.3s; }
+    .nav-links a:hover { color: white; }
+
+    /* HERO WITH IMAGE */
+    .hero { min-height: 100vh; display: flex; align-items: center; padding-top: 100px; }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      max-width: 1300px;
+      margin: 0 auto;
+    }
+    .hero-content { text-align: left; }
+    .badge {
+      display: inline-block; padding: 8px 18px; border-radius: 50px;
+      background: rgba(99,102,241,0.1); border: 1px solid rgba(99,102,241,0.2);
+      color: #818cf8; font-weight: 500; margin-bottom: 1.5rem;
+    }
+    .hero h1 { font-size: 4.5rem; line-height: 1.1; letter-spacing: -1px; margin-bottom: 1.5rem; }
+    .text-gradient { background: var(--gradient-main); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .hero p { font-size: 1.25rem; color: var(--text-muted); max-width: 600px; margin-bottom: 2.5rem; }
+    .hero-stats {
+      display: flex; gap: 3rem; margin-top: 4rem; padding-top: 2rem;
+      border-top: 1px solid var(--card-border);
+    }
+    .stat { transition: 0.3s; }
+    .stat:hover { transform: translateY(-8px); }
+    .stat h4 { font-size: 2.2rem; background: linear-gradient(to bottom,#fff,#e2e8f0); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .stat p { color: var(--text-muted); font-size: 0.9rem; }
+
+    /* Hero Image */
+    .hero-image {
+      display: flex;
+      justify-content: center;
+      perspective: 1000px;
+    }
+    .image-wrapper {
+      position: relative;
+      width: 340px;
+      height: 460px;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+      transform: rotateY(6deg) rotateX(4deg);
+      transition: all 0.6s ease;
+    }
+    .image-wrapper:hover {
+      transform: rotateY(0deg) rotateX(0deg) translateY(-10px);
+      box-shadow: 0 30px 60px rgba(99,102,241,0.35);
+    }
+    .image-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+    .image-wrapper:hover img { transform: scale(1.05); }
+    .image-glow {
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, transparent 30%, rgba(99,102,241,0.25) 70%);
+      opacity: 0; transition: opacity 0.4s; pointer-events: none;
+    }
+    .image-wrapper:hover .image-glow { opacity: 1; }
+
+    section { padding: 100px 0; }
+    .section-title {
+      font-size: 3rem; text-align: center; margin-bottom: 1rem;
+      background: linear-gradient(to right,#fff,#94a3b8); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .section-subtitle { text-align: center; color: var(--text-muted); margin-bottom: 4rem; }
+
+    .bento-grid { display: grid; grid-template-columns: 1.5fr 1fr; gap: 24px; }
+    .card {
+      background: var(--card-bg); border: 1px solid var(--card-border);
+      border-radius: 24px; padding: 2.5rem; transition: 0.3s;
+    }
+    .card:hover { transform: translateY(-5px); border-color: rgba(99,102,241,0.3); }
+
+    .skills-wrap { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 1.5rem; }
+    .skill-pill {
+      background: rgba(255,255,255,0.03); border: 1px solid var(--card-border);
+      padding: 10px 18px; border-radius: 12px; font-size: 0.95rem; font-weight: 500;
+      color: #e5e7eb; display: flex; align-items: center; gap: 10px; transition: 0.3s;
+    }
+    .skill-pill:hover { background: rgba(99,102,241,0.1); border-color: var(--primary); transform: translateY(-2px); }
+
+    .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 2rem; }
+    .project-card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 20px; overflow: hidden; }
+    .project-img {
+      height: 240px; background-size: cover; background-position: center; position: relative;
+    }
+    .project-img::after { content: ''; position: absolute; inset: 0; background: rgba(0,0,0,0.4); transition: 0.4s; }
+    .project-card:hover .project-img::after { background: transparent; }
+    .project-card:hover .project-img { transform: scale(1.05); transition: transform 0.6s; }
+    .project-content { padding: 2rem; }
+    .project-tags { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 1rem; }
+    .tag { font-size: 0.75rem; padding: 4px 10px; border-radius: 4px; background: rgba(6,182,212,0.1); color: var(--accent); }
+    .project-link { color: var(--primary); font-weight: 600; display: flex; align-items: center; gap: 6px; }
+    .project-link:hover { gap: 10px; }
+
+    .contact-wrapper { border-top: 1px solid var(--card-border); }
+    .contact-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; max-width: 1000px; margin: 0 auto; }
+    .contact-box {
+      background: rgba(255,255,255,0.02); border: 1px solid var(--card-border);
+      padding: 2.5rem 2rem; border-radius: 20px; text-align: center; position: relative; overflow: hidden;
+      transition: 0.3s;
+    }
+    .contact-box::before {
+      content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 4px;
+      background: var(--gradient-main); transform: scaleX(0); transition: 0.4s;
+    }
+    .contact-box:hover { transform: translateY(-10px); background: rgba(255,255,255,0.04); }
+    .contact-box:hover::before { transform: scaleX(1); }
+    .icon-circle {
+      width: 60px; height: 60px; background: rgba(255,255,255,0.05); border-radius: 50%;
+      display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem;
+      font-size: 1.5rem; color: white; border: 1px solid rgba(255,255,255,0.1);
+    }
+    .contact-box:nth-child(1) .icon-circle { color: #34d399; }
+    .contact-box:nth-child(2) .icon-circle { color: #a78bfa; }
+    .contact-box:nth-child(3) .icon-circle { color: #fbbf24; }
+
+    footer { padding: 3rem 0; text-align: center; color: var(--text-muted); border-top: 1px solid var(--card-border); }
+
+    /* Responsive */
+    @media (max-width: 992px) {
+      .hero-grid { grid-template-columns: 1fr; text-align: center; gap: 3rem; }
+      .hero-content { order: 1; text-align: center; }
+      .hero-image { order: 2; }
+      .hero-buttons { justify-content: center; }
+      .hero-stats { justify-content: center; }
+      .image-wrapper { transform: none; width: 300px; height: 400px; }
+      .image-wrapper:hover { transform: translateY(-10px); }
+    }
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 3.5rem; }
+      .hero-buttons { flex-direction: column; align-items: center; }
+      .btn, .btn-secondary { width: 100%; max-width: 320px; justify-content: center; }
+      .bento-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 480px) {
+      .hero h1 { font-size: 2.8rem; }
+      .image-wrapper { width: 260px; height: 340px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="bg-blobs">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+  </div>
+
+  <nav>
+    <div class="logo">Haroon.</div>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Work</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <!-- HERO WITH IMAGE -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        
+        <!-- Text Content -->
+        <div class="hero-content">
+          <div class="badge">
+            Available for Hire
+          </div>
+          <h1>Building <span class="text-gradient">Digital Experiences</span><br>That Matter.</h1>
+          <p>I am Muhammad Haroon, a Frontend Developer & WordPress Specialist based in Pakistan. I craft responsive, high-performance websites with React, Tailwind, and modern UI principles.</p>
+
+          <div class="hero-buttons">
+            <a href="#projects" class="btn">View My Work <i class="fas fa-arrow-right"></i></a>
+            <a href="#contact" class="btn-secondary">Contact Me <i class="fas fa-envelope"></i></a>
+          </div>
+
+          <div class="hero-stats">
+            <div class="stat"><h4>3+</h4><p>Years Experience</p></div>
+            <div class="stat"><h4>20+</h4><p>Projects Completed</p></div>
+            <div class="stat"><h4>100%</h4><p>Client Satisfaction</p></div>
+          </div>
+        </div>
+
+     <!-- Profile Image -->
+<div class="hero-image">
+  <div class="image-wrapper">
+    <img src="assets/me.png" alt="Muhammad Haroon - Frontend Developer">
+    <div class="image-glow"></div>
+  </div>
+</div>
+      </div>
+    </div>
+  </section>
+<section id="about">
+  <div class="container">
+    
+    <div class="bento-grid">
+      <div class="card-3d">
+        <h3 style="font-size: 2.2rem; margin-bottom: 1.5rem; color:white; font-weight:700; letter-spacing: -1px;">
+          Crafting <span style="color:#818cf8">Digital Excellence</span>
+        </h3>
+        
+        <div style="font-size: 1.1rem; color: var(--text-muted); line-height: 1.8;">
+          <p style="margin-bottom: 1.5rem;">
+            I am Muhammad Haroon, a creative <strong>Frontend Engineer</strong> and <strong>WordPress Specialist</strong> currently driving digital growth at <span style="color:white;">7th Club</span>.
+          </p>
+          <p>
+             My expertise lies in bridging the gap between stunning design and technical performance. I build pixel-perfect, SEO-optimized interfaces that not only look amazing but also deliver measurable results for businesses.
+          </p>
+        </div>
+
+        <div style="margin-top: 2.5rem; display: flex; gap: 1.5rem; align-items: center;">
+          <a href="#contact" class="btn" style="padding: 12px 28px;">Let's Talk</a>
+          
+          <div style="display: flex; gap: 1rem;">
+            <a href="https://github.com/haroon1166" target="_blank" style="font-size: 1.8rem; color: var(--text-muted); transition:0.3s;" onmouseover="this.style.color='white'; this.style.transform='translateY(-3px)'" onmouseout="this.style.color='var(--text-muted)'; this.style.transform='translateY(0)'">
+              <i class="fab fa-github"></i>
+            </a>
+            <a href="#" target="_blank" style="font-size: 1.8rem; color: var(--text-muted); transition:0.3s;" onmouseover="this.style.color='#0a66c2'; this.style.transform='translateY(-3px)'" onmouseout="this.style.color='var(--text-muted)'; this.style.transform='translateY(0)'">
+              <i class="fab fa-linkedin"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-3d" id="skills" style="text-align:center;">
+        <h3 style="font-size: 1.8rem; color:white; margin-bottom:0.5rem;">Tech Arsenal</h3>
+        <p style="color: var(--text-muted); font-size: 0.95rem;">My tools of choice for building modern solutions.</p>
+        
+        <div class="tech-grid-3d">
+          
+          <div class="tech-item-3d" title="React.js">
+            <i class="fab fa-react icon-3d-tech i-react-3d"></i>
+          </div>
+
+          <div class="tech-item-3d" title="JavaScript">
+            <i class="fab fa-js icon-3d-tech i-js-3d"></i>
+          </div>
+
+          <div class="tech-item-3d" title="Tailwind CSS">
+            <i class="fas fa-wind icon-3d-tech i-tailwind-3d"></i>
+          </div>
+
+          <div class="tech-item-3d" title="Figma">
+            <i class="fab fa-figma icon-3d-tech i-figma-3d"></i>
+          </div>
+
+          <div class="tech-item-3d" title="WordPress">
+            <i class="fab fa-wordpress icon-3d-tech i-wp-3d"></i>
+          </div>
+
+          <div class="tech-item-3d" title="Elementor">
+            <i class="fab fa-elementor icon-3d-tech i-elementor-3d"></i>
+          </div>
+
+          <div class="tech-item-3d" title="Git & GitHub">
+            <i class="fab fa-git-alt icon-3d-tech i-git-3d"></i>
+          </div>
+
+          <div class="tech-item-3d" title="SEO Optimization">
+            <i class="fas fa-magnifying-glass-chart icon-3d-tech i-seo-3d"></i>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="container">
+      <h2 class="section-title">Featured Work</h2>
+      <p class="section-subtitle">A selection of projects ranging from web apps to marketing sites.</p>
+      
+      <div class="project-grid">
+        <div class="project-card">
+          <div class="project-img" style="background-image:url('https://via.placeholder.com/600x400/4f46e5/ffffff?text=Smart+Portal');"></div>
+          <div class="project-content">
+            <div class="project-tags"><span class="tag">React</span><span class="tag">Clerk Auth</span></div>
+            <h3>Smart Application Portal</h3>
+            <p>A comprehensive portal for jobs, internships, and scholarships featuring dynamic form handling and user dashboards.</p>
+            <a href="#" class="project-link">View Project <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-img" style="background-image:url('https://via.placeholder.com/600x400/10b981/ffffff?text=Fitness+App');"></div>
+          <div class="project-content">
+            <div class="project-tags"><span class="tag">Firebase</span><span class="tag">React</span></div>
+            <h3>Harry Fitness</h3>
+            <p>An interactive fitness dashboard allowing users to track workouts and calculate BMI with real-time data updates.</p>
+            <a href="#" class="project-link">View Project <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-img" style="background-image:url('https://via.placeholder.com/600x400/8b5cf6/ffffff?text=Med+Spa');"></div>
+          <div class="project-content">
+            <div class="project-tags"><span class="tag">WordPress</span><span class="tag">Elementor</span></div>
+            <h3>NB Aesthetic Spa</h3>
+            <p>A high-end aesthetic clinic website with a custom booking system, optimized for local SEO and conversion.</p>
+            <a href="#" class="project-link">View Project <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div style="text-align:center; margin-top:4rem;">
+        <a href="https://github.com/haroon1166" class="btn" style="background:rgba(255,255,255,0.1); box-shadow:none;">View Github Profile</a>
+      </div>
+    </div>
+  </section>
+<section id="contact" class="contact-wrapper">
+   <div class="container">
+     <h2 class="section-title">Let's Work Together</h2>
+     <p class="section-subtitle">Have a project in mind? I'm always open to discussing new opportunities.</p>
+     
+     <div class="contact-cards">
+       
+       <div class="contact-box">
+         <div class="icon-circle">
+            <i class="fas fa-phone-alt icon-3d i-phone"></i>
+         </div>
+         <div class="contact-label">Call Me</div>
+         <div class="contact-value">+92 313 9460504</div>
+         <a href="tel:+923139460504" style="position:absolute; inset:0; z-index:2;"></a>
+       </div>
+
+       <div class="contact-box">
+         <div class="icon-circle">
+            <i class="fas fa-envelope icon-3d i-mail"></i>
+         </div>
+         <div class="contact-label">Email Me</div>
+         <div class="contact-value" style="font-size:0.95rem; word-break: break-all;">Muhammadharoon116655@gmail.com</div>
+         <a href="mailto:Muhammadharoon116655@gmail.com" style="position:absolute; inset:0; z-index:2;"></a>
+       </div>
+
+       <div class="contact-box">
+         <div class="icon-circle">
+            <i class="fas fa-map-marker-alt icon-3d i-map"></i>
+         </div>
+         <div class="contact-label">Location</div>
+         <div class="contact-value">Nowshera Cantt, PK</div>
+       </div>
+     </div>
+
+     <div style="text-align:center; margin-top:4rem;">
+       <p style="color:var(--text-muted); margin-bottom: 1rem;">Prefer to chat directly?</p>
+       <a href="mailto:Muhammadharoon116655@gmail.com" class="btn">Send a Message</a>
+     </div>
+   </div>
+ </section>
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Muhammad Haroon. Built with React principles & CSS Magic.</p>
+    </div>
+  </footer>
+<style>/* --- 3D ICON STYLES --- */
+
+/* 1. Make the container circles bigger */
+.contact-box .icon-circle {
+  width: 90px;  /* Increased size */
+  height: 90px; /* Increased size */
+  font-size: 3rem; /* Much larger icons */
+  background: rgba(255, 255, 255, 0.03); /* Slightly more transparent background */
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: inset 0 0 20px rgba(255,255,255,0.02); /* Inner depth */
+}
+
+/* 2. Base 3D Icon Transition */
+.icon-3d {
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Bouncy transition */
+}
+
+/* 3. Color-Specific 3D Stacks */
+
+/* Phone - Emerald Green 3D */
+.i-phone {
+  color: #34d399;
+  text-shadow: 
+    0 1px 0 #059669,
+    0 2px 0 #047857,
+    0 3px 0 #065f46,
+    0 4px 0 #064e3b,
+    0 5px 15px rgba(52, 211, 153, 0.4);
+}
+
+/* Email - Violet Purple 3D */
+.i-mail {
+  color: #a78bfa;
+  text-shadow: 
+    0 1px 0 #7c3aed,
+    0 2px 0 #6d28d9,
+    0 3px 0 #5b21b6,
+    0 4px 0 #4c1d95,
+    0 5px 15px rgba(167, 139, 250, 0.4);
+}
+
+/* Map - Amber Gold 3D */
+.i-map {
+  color: #fbbf24;
+  text-shadow: 
+    0 1px 0 #d97706,
+    0 2px 0 #b45309,
+    0 3px 0 #92400e,
+    0 4px 0 #78350f,
+    0 5px 15px rgba(251, 191, 36, 0.4);
+}
+
+/* 4. Hover "Pop Up" Effect */
+.contact-box:hover .icon-3d {
+  transform: translateY(-8px) scale(1.1); /* Lift and grow */
+  /* Increase shadow distance on hover for depth */
+}
+.contact-box:hover .i-phone {
+   text-shadow: 0 4px 0 #059669, 0 8px 0 #047857, 0 12px 0 #065f46, 0 20px 30px rgba(52, 211, 153, 0.6);
+}
+.contact-box:hover .i-mail {
+   text-shadow: 0 4px 0 #7c3aed, 0 8px 0 #6d28d9, 0 12px 0 #5b21b6, 0 20px 30px rgba(167, 139, 250, 0.6);
+}
+.contact-box:hover .i-map {
+   text-shadow: 0 4px 0 #d97706, 0 8px 0 #b45309, 0 12px 0 #92400e, 0 20px 30px rgba(251, 191, 36, 0.6);
+}</style>
+</body>
+</html>
